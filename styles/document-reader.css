@@ -1,0 +1,56 @@
+
+.document-reader .card {
+    border: none;
+    box-shadow: 0px 2px 10px rgba(113, 110, 110, 0.5);
+}
+
+
+/* Used gradient from uiGradients.com */
+.document-reader .card-header {
+    background: #232526; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #414345,
+        #232526
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #414345,
+        #232526
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: #66bfbf;
+}
+
+.document-reader .card-body {
+    background: #3a4452;
+    color: white;
+}
+
+.document-reader .card-footer {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    
+    background: #232526; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #414345,
+        #232526
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #414345,
+        #232526
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.document-reader .card-footer span {
+    color: white;
+}
+
+.document-reader .card-footer img {
+    height: 30px;
+    margin-left: 15px;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Novel Nook - Uncover Stories, Unleash Imagination | Sanjok Mangrati
+        </title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="styles/general.css" />
+        <link rel="stylesheet" href="styles/sidebar.css" />
+        <link rel="stylesheet" href="styles/document-reader.css" />
+    </head>
+    <body>
+        <main class="container">
+            <div class="row gx-md-5">
+                <!-- Document Reader -->
+                <!-- Bootstrap uses 12 cols grid so we are taking 8 cols space in medium size device for our document reader -->
+                <div class="col-md-8 document-reader">
+                    <img
+                        src="images/NovelNookLogo.png"
+                        alt="logo"
+                        class="logo"
+                    />
+                    <div class="card mb-4">
+                        <h2 class="card-header" id="filename">Book Title</h2>
+                        <div class="card-body">
+                            <div class="displayBox scrollBox" id="file-content">
+                                Select a Book
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <span>Follow me on </span>
+                            <a
+                                href="https://www.linkedin.com/in/sanjok-mangrati-343277230"
+                                target="_blank"
+                                ><img src="images/social.png" alt="linkedIn"></a
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <!-- Using 4 cols space for sidebar on medium size devices -->
+                <div class="col-md-4 sidebar">
+                    <!-- Search Box -->
+                    <div class="card my-4 search-box">
+                        <h5 class="card-header">Search</h5>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <!-- Using bootstrap input group -->
+                                <input
+                                    type="text"
+                                    class="form-control rounded"
+                                    id="keyword"
+                                    placeholder="Find Word"
+                                />
+                                <span class="input-group-btn">
+                                    <button
+                                        class="btn btn-secondary mx-2"
+                                        type="button"
+                                        onclick="performMark()"
+                                    >
+                                        Search
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-footer" id="search-stats">
+                            <!-- Content here will be dynamically added using javascript -->
+                        </div>
+                    </div>
+
+                    <!-- Select Book Widget -->
+                    <div class="card my-4">
+                        <h5 class="card-header">Select a Book</h5>
+                        <div class="card-body">
+                            <!-- Using grid row inside card body -->
+                            <div class="row">
+                                <!-- Creating col that takes up 12 col space on medium size device -->
+                                <div class="col-md-12">
+                                    <ul class="list-unstyled mb-0 select-book-list">
+                                        <li><a href="#" onclick="loadBook('Harry Potter and The Philosophers Stone.txt', 'Harry Potter and The Philosophers Stone')">Harry Potter and The Philosophers Stone</a></li>
+                                        <li>
+                                            <a href="#" onclick="loadBook('Alice in Wonderland.txt', 'Alice in Wonderland')">Alice in Wonderland</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onclick="loadBook('LOTR 1.txt', 'Lord of the Rings: The Fellowship of The Ring')">Lord of the Rings: The Fellowship of The Ring</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onclick="loadBook('The Monk Who Sold His Ferrari.txt', 'The Monk Who Sold His Ferrari')">The Monk Who Sold His Ferrari</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Most Used Words Widget -->
+                    <div class="card my-4">
+                        <h5 class="card-header">Most Used Words</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul
+                                        class="list-unstyled mb-0"
+                                        id="most-used-words"
+                                    >
+                                        <!-- Content here will be dynamically added using javascript -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Least Used Words Widget -->
+                    <div class="card my-4">
+                        <h5 class="card-header">Least Used Words</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul
+                                        class="list-unstyled mb-0"
+                                        id="least-used-words"
+                                    >
+                                        <!-- Content here will be dynamically added using javascript -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Document Stats Widget -->
+                    <div class="card my-4">
+                        <h5 class="card-header">Document Stats</h5>
+                        <div class="card-body">     
+                            <ul
+                                class="list-unstyled mb-0"
+                                id="document-stats"
+                            >
+                            <!-- Content here will be dynamically added using javascript -->
+                            <li id="docLength"></li>
+                            <li id="wordCount"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script id="template-ul-items" type="'text/template">
+            <li>
+                {{val}}
+            </li>
+        </script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>"
+        ></script>
+        <!-- Custom JavaScript -->
+        <script src="scripts/script.js"></script>
+    </body>
+</html>
