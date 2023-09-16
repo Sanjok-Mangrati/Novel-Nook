@@ -17,7 +17,7 @@ Novel Nook is a book reading website that offers a range of features to enhance 
 - **Word Count:** Get the total word count of the book to track your reading progress.
 - **Most Used Words:** Discover the most frequently used words in the book to gain insights into its content.
 - **Least Used Words:** Explore the least used words in the book, which can be an interesting way to uncover unique vocabulary.
-- No external frameworks or libraries used, only raw HTML, CSS, and JavaScript.
+- Created using HTML, Bootstrap CSS, and JavaScript.
 
 
 ## Usage
